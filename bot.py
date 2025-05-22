@@ -199,7 +199,7 @@ async def main():
     application = Application.builder().token(TOKEN).build()
     application.add_handler(CommandHandler("card", card))
     print("Бот запущен...")
-    await application.run_polling()
+    await main()
 
 # Запуск
 if __name__ == "__main__":
