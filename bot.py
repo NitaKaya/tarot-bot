@@ -9,7 +9,12 @@ nest_asyncio.apply()
 
 # Токен твоего бота
 import os
-TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')# (Твой токен правильный)
+
+TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
+
+if not TOKEN:
+    raise ValueError("TOKEN is not set in environment variables")
+# (Твой токен правильный)
 
 # Список карт Таро
 cards = [
