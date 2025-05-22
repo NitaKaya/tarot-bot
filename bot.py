@@ -204,3 +204,20 @@ async def main():
 # Запуск
 if __name__ == "__main__":
     asyncio.run(main())
+# Добавим фейковый веб-сервер, чтобы Render не ругался
+import threading
+from http.server import BaseHTTPRequestHandler, HTTPServer
+
+class DummyHandler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        self.send_response(200)
+        self.end_headers()
+        self.wfile.write(b'Tarot bot is alive!')
+
+def run_dummy_server():
+    port = int(os.environ.get('PORT', 10000))  # Render передаёт свой порт через переменную
+    server = HTTPServer(('', port), DummyHandler)
+    server.serve_forever()
+
+# Запускаем сервер в отдельном потоке
+threading.Thread(target=run_dummy_server, daemon=True).start()
