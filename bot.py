@@ -15,7 +15,7 @@ from telegram.ext import ApplicationBuilder
 TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 
 if not TOKEN:
-    raise ValueError("TOKEN is not set in environment variables")
+    raise ValueError("TELEGRAM_BOT_TOKEN is not set in environment variables")
 
 app = ApplicationBuilder().token(TOKEN).build()
 # (Твой токен правильный)
