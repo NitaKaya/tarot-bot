@@ -8,7 +8,8 @@ from telegram.ext import Application, CommandHandler
 nest_asyncio.apply()
 
 # Токен твоего бота
-TOKEN = '7548864954:AAEPvMw2QspKzkOBtEembUwmXilJyhnnK0w'  # (Твой токен правильный)
+import os
+TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')# (Твой токен правильный)
 
 # Список карт Таро
 cards = [
