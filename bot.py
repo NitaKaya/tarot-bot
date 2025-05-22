@@ -7,13 +7,15 @@ from telegram.ext import Application, CommandHandler
 # Применяем патч для работы с уже запущенным Event Loop
 nest_asyncio.apply()
 
-# Токен твоего бота
 import os
+from telegram.ext import ApplicationBuilder
 
-TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
+TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 
 if not TOKEN:
     raise ValueError("TOKEN is not set in environment variables")
+
+app = ApplicationBuilder().token(TOKEN).build()
 # (Твой токен правильный)
 
 # Список карт Таро
