@@ -8,6 +8,8 @@ from telegram.ext import Application, CommandHandler
 nest_asyncio.apply()
 
 import os
+print("Environment variables:", os.environ)
+
 from telegram.ext import ApplicationBuilder
 
 TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
