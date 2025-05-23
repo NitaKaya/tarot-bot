@@ -1,4 +1,6 @@
 import random
+import json
+import os
 import asyncio
 import nest_asyncio
 from telegram import Update
@@ -177,6 +179,12 @@ cards = [
         "message": "ТЗдесь ты обретёшь свой дом. Всё завершилось- и всё начинается снова. "
     }
 ]
+
+file_ids = {}
+if os.path.exists("file_ids.json"):
+    with open("file_ids.json", "r", encoding="utf-8") as f:
+        file_ids = json.load(f)
+
 
 # Функция для команды /card
 async def card(update: Update, context):
